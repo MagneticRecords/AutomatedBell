@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chime Settings</title>
+    <style>
+      div{
+        width: 320px;
+        padding: 10px;
+        border: 7px solid gray;
+        margin: 5; 
+      }
+      f{
+        color:black;
+        font-size:200%
+      }
+    </style>
+  </head>
+  <body>
+    <br><br><br><br><br>
+    <center>
+      <f>Chime Settings!</f><br><br>
+      <form>
+        <div>
+          Chime Melody: 
+          <select name="Melody">
+            <option value="default">Default Tone</option>
+            <option value="onenote">Single Chime</option>
+            <option value="silence">none</option>
+          </select><br><br>
+          Chime Volume: 
+          <input type="range" name="volume" min="0" max="5"><br><br>
+          <input type="submit" value="Save Changes">
+        </div><br><br><br>
+        <img src="logo.png" style="width:30px;height:30px">
+      </form>
+    </center>
+  </body>
+</html>
