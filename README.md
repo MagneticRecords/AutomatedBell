@@ -12,8 +12,8 @@ Each of the solenoids is hooked up to its indiviual pin on the Raspberry Pi. The
 ```
 pins = [12,16,18,22,32,36,38,40] #the numbers are the id's of the pins that were available for GPIO output (some are reserved for grounding, etc.)
 GPIO.setmode(GPIO.BOARD)
-    for x in pins:
-       GPIO.setup(x,GPIO.OUT)
+for x in pins:
+   GPIO.setup(x,GPIO.OUT)
 ```
 
 Then the pin is triggered by the following command:
