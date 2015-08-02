@@ -1,13 +1,21 @@
 # AutomatedBell
 Rings every time an angel gets his wings (or First Opinion account).
 
+![alt tag](https://raw.github.com/MagneticRecords/AutomatedBell/master/images/IMAG0422.jpg)
+
 ## How it works
 
 Basically, the circuit we build triggers the solenoids to rapidly move the nail down onto the xylophone, then get pulled back up by the rubber band.
 
+![alt tag](https://raw.github.com/MagneticRecords/AutomatedBell/master/images/IMAG0423.jpg)
+
 ## The Code
 
-Each of the solenoids is hooked up to its indiviual pin on the Raspberry Pi. These pins are controlled by the Pi's own build-in GPIO/RPi api. The pins are initialized by this code:
+Each of the solenoids is hooked up to its indiviual pin on the Raspberry Pi. 
+
+![alt tag](https://raw.github.com/MagneticRecords/AutomatedBell/master/images/IMAG0425.jpg)
+
+These pins are controlled by the Pi's own build-in GPIO/RPi api. The pins are initialized by this code:
 
 ```
 pins = [12,16,18,22,32,36,38,40] #the numbers are the id's of the pins that were available for GPIO output (some are reserved for grounding, etc.)
