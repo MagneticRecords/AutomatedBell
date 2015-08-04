@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-import captain
-
 import controller as c
+import sys
 
-def main(notes):
-    x=c.controller(.1,.05)
-    x.write_sequence(notes)
-    x.play()
-    print "chile"
-    return 0
+x=c.controller(0.15,float(sys.argv[2])/100)
+x.write_sequence(sys.argv[1])
+x.play()
+print sys.argv[1]
+print sys.argv[2]

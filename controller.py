@@ -1,4 +1,3 @@
-import threading
 import RPi.GPIO as GPIO
 
 pins = []
@@ -18,6 +17,9 @@ class controller:
       self.speed=initialspeed # S
       self.melody = melody_class()
       self.tones = []
+      self.rings = []
+      self.tones = ['c','d','e','f','g','a','b','C']
+
       self.rings = []
       self.tones = ['c','d','e','f','g','a','b','C']
       self.rings = ['default','onenote','silence']

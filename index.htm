@@ -1,13 +1,60 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Chime Settings</title>
+    <script>
+      function testMelody()
+      {
+      var xmlhttp;
+      if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+      else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+      }
+      }
+      xmlhttp.open("POST","http://10.0.0.29:8000/?change=PLAY",true);
+      xmlhttp.send();
+      }
+
+      function changeMelody(str) {
+      if (str == "") {
+      document.getElementById("txtHint").innerHTML = "";
+      return;
+      } else {
+      if (window.XMLHttpRequest) {
+      // code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp = new XMLHttpRequest();
+      } else {
+      // code for IE6, IE5
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+      }
+      }
+      xmlhttp.open("POST","http://10.0.0.29:8000/?change="+str,true);
+      xmlhttp.send();
+      }
+      }
+    </script>
+
     <style>
       div{
         width: 320px;
         padding: 10px;
         border: 7px solid gray;
-        margin: 5; 
+        margin: 5;
       }
       f{
         color:black;
@@ -19,20 +66,25 @@
     <br><br><br><br><br>
     <center>
       <f>Chime Settings!</f><br><br>
-      <form>
+
         <div>
-          Chime Melody: 
-          <select name="Melody">
-            <option value="default">Default Tone</option>
-            <option value="onenote">Single Chime</option>
-            <option value="silence">none</option>
-          </select><br><br>
-          Chime Volume: 
-          <input type="range" name="volume" min="0" max="5"><br><br>
-          <input type="submit" value="Save Changes">
-        </div><br><br><br>
+          Chime Melody:
+	  <form>
+	    <select name="users" onchange="changeMelody(this.value)">
+	      <option value="cdg">Default</option>
+	      <option value="ceg">Default 2</option>
+	      <option value="gdc">Default 3</option>
+	    </select>
+   	    <button type="button" onclick="testMelody()">Test Melody</button>
+          <br><br>
+          Note Speed:
+          <br><br>
+	  <input type="range" onchange="changeMelody(this.value)" name="volume" min="1" max="100"><br><br>
+          </form>
+
+	</div><br><br><br>
         <img src="logo.png" style="width:30px;height:30px">
-      </form>
+
     </center>
   </body>
 </html>
